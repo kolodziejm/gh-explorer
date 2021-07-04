@@ -38,8 +38,6 @@ function SearchForm(): ReactElement {
 
       setMessage(`Showing users for "${username}"`);
     } catch (err) {
-      console.error(err);
-
       setMessage('Something went wrong');
     } finally {
       setLoading(false);
