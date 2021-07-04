@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+import { datatype, internet, lorem } from 'faker';
 import { Provider } from 'react-redux';
-import { datatype, lorem, internet } from 'faker';
 import { Repository } from '../../../clients/types';
 import store from '../../../store';
 import RepositoryItem from './index';
