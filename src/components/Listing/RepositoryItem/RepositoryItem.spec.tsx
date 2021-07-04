@@ -1,0 +1,46 @@
+import '@testing-library/jest-dom/extend-expect';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { datatype, lorem, internet } from 'faker';
+import { Repository } from '../../../clients/types';
+import store from '../../../store';
+import RepositoryItem from './index';
+
+const createRepository = (hasDescription = true) => ({
+  description: hasDescription ? lorem.words() : '',
+  id: datatype.number(),
+  name: lorem.word(),
+  stargazers_count: datatype.number(),
+  owner: {
+    id: datatype.number(),
+    login: internet.userName(),
+  },
+});
+
+const renderForm = (repository: Repository) => render(
+  <Provider store={store}>
+    <RepositoryItem repository={repository} />
+  </Provider>,
+);
+
+describe('RepositoryItem', () => {
+  it('renders description text element when repository has a description', () => {
+    const repositoryWithDescription = createRepository();
+
+    const { getByTestId } = renderForm(repositoryWithDescription);
+
+    const descriptionEl = getByTestId(/description/i);
+
+    expect(descriptionEl).toBeInTheDocument();
+  });
+
+  it('doesn\'t render description text element when repository has no description', () => {
+    const repositoryWithDescription = createRepository(false);
+
+    const { queryByTestId } = renderForm(repositoryWithDescription);
+
+    const descriptionEl = queryByTestId(/description/i);
+
+    expect(descriptionEl).toBeNull();
+  });
+});
