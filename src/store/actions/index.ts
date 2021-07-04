@@ -30,10 +30,9 @@ export function fetchUsersAndRepositories(username: string) {
 
     const users = await githubClient.getUsers(username);
 
-    const repositories = await Promise
-      .all(
-        users.map(({ login }: { login: string }) => githubClient.getUserRepositories(login)),
-      );
+    const repositories = await Promise.all(
+      users.map(({ login }: { login: string }) => githubClient.getUserRepositories(login)),
+    );
 
     dispatch(setUsers(users));
     dispatch(setRepositories(repositories.flat()));

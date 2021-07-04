@@ -14,7 +14,7 @@ interface Props {
   children: ReactElement[];
 }
 
-function App({ children, user }: Props): ReactElement {
+function UserItem({ children, user }: Props): ReactElement {
   return (
     <AccordionItem mb={2}>
       <AccordionButton bgColor="gray.200">
@@ -31,4 +31,4 @@ function App({ children, user }: Props): ReactElement {
   );
 }
 
-export default App;
+export default UserItem;

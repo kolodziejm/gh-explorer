@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
 import { Box, Text } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 import { IoStar } from 'react-icons/io5';
 import { Repository } from '../../../clients/types';
 

@@ -1,12 +1,12 @@
-import { SET_INITIAL_STATE, SET_USERS, SET_REPOSITORIES } from './actions/constants';
-import { State, Action } from './types';
+import { SET_INITIAL_STATE, SET_REPOSITORIES, SET_USERS } from './actions/constants';
+import { Action, State } from './types';
 
 export const initialState: State = {
   users: [],
   repositories: [],
 };
 
-export default (state = initialState, action: Action) => {
+export default (state: State = initialState, action: Action) => {
   switch (action.type) {
     case SET_INITIAL_STATE:
       return {

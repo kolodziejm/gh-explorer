@@ -1,4 +1,4 @@
-import { User, Repository } from '../clients/types';
+import { Repository, User } from '../clients/types';
 
 export type Action = {
   type: string;

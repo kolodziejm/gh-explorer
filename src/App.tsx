@@ -1,7 +1,7 @@
 import { Container } from '@chakra-ui/react';
 import { ReactElement } from 'react';
-import SearchForm from './components/SearchForm';
 import Listing from './components/Listing';
+import SearchForm from './components/SearchForm';
 
 function App(): ReactElement {
   return (

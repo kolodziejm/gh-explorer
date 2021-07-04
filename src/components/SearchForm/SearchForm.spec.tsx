@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import SearchForm from './index';
 import store from '../../store';
+import SearchForm from './index';
 
 const renderForm = () => render(
   <Provider store={store}>

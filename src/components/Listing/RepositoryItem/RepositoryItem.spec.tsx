@@ -17,7 +17,7 @@ const createRepository = (hasDescription = true) => ({
   },
 });
 
-const renderForm = (repository: Repository) => render(
+const renderItem = (repository: Repository) => render(
   <Provider store={store}>
     <RepositoryItem repository={repository} />
   </Provider>,
@@ -27,7 +27,7 @@ describe('RepositoryItem', () => {
   it('renders description text element when repository has a description', () => {
     const repositoryWithDescription = createRepository();
 
-    const { getByTestId } = renderForm(repositoryWithDescription);
+    const { getByTestId } = renderItem(repositoryWithDescription);
 
     const descriptionEl = getByTestId(/description/i);
 
@@ -37,7 +37,7 @@ describe('RepositoryItem', () => {
   it('doesn\'t render description text element when repository has no description', () => {
     const repositoryWithDescription = createRepository(false);
 
-    const { queryByTestId } = renderForm(repositoryWithDescription);
+    const { queryByTestId } = renderItem(repositoryWithDescription);
 
     const descriptionEl = queryByTestId(/description/i);
 
